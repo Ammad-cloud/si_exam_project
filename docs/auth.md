@@ -1,6 +1,6 @@
 # Authentication methods
 
-Using their email and password, users may register, log in, and log out.
+Using email and password, users may register, login, and verify their login.
 
 REST API is used to provide the authentication.
 Visit https://si-auth-server-5rds.onrender.com/swagger to view the Swagger documentation.
@@ -60,5 +60,12 @@ access-token: {jwt}
 Host: https://si-auth-server-5rds.onrender.com
 ```
 
-If the jwt is valid the server return with a response 200. If the token is invalid, status code 400 is the respond.
+If the jwt is valid the server return with a response 200 and a response body of:
+```json
+{
+    "_id": "6385d5e3b1161d35559d1620",
+    "iat": 1670405021
+}
+```
+If the token is invalid, status code 400 is responded with a "invalid token"-body.
 
