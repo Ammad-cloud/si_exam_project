@@ -1,0 +1,33 @@
+{
+  "name": "wishlist_backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "build": "node build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ammad-cloud/wishlist_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ammad-cloud/wishlist_backend/issues"
+  },
+  "homepage": "https://github.com/Ammad-cloud/wishlist_backend#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.12.0",
+    "nodemailer": "^6.8.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.6.0"
+  }
+}

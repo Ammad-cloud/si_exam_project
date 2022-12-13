@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your wishlist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="getWishlist()">
+  <script src="nav.js"></script>
+
+<div class="wishlist-container">
+    <button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">Personal wishlist</button>
+    <button class="tablink" onclick="openPage('News', this, 'green')" >friend #1 wishlist</button>
+    <button class="tablink" onclick="openPage('Contact', this, 'blue')">Friend #2</button>
+    <button class="tablink" onclick="openPage('About', this, 'orange')">Friend #3</button>
+
+<div id="Home" class="tabcontent">
+  <h3>Your wishlist</h3>
+  <div id="wishlistItems">
+    <!--create a table header-->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">URL</th>
+        </tr>
+      </thead>
+      <tbody id="wishlistTable">
+      </tbody>
+  </div>
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>Your friend wishlist #1</h3>
+  <p>Some news this fine day!</p> 
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Your friend wishlist #2</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>Your friend wishlist #3</h3>
+  <p>Who we are and what we do.</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = "color";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+
+</script>
+</div>
+</body>
+<script src="app.js"></script>
+</html>

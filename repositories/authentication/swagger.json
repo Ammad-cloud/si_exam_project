@@ -1,0 +1,305 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Authentication API",
+        "description": "API documentation for Authentaction",
+        "contact": {
+            "email": "hm@mail.com"
+        }
+    },
+  "host": "localhost:3000",
+  "basePath": "/api",
+	"tags": [
+		{
+			"name": "Users",
+			"description": "User actions"
+		},
+    {
+      "name": "Auth",
+      "description": "Authentication actions"
+    }
+	],
+	"schemes": ["http", "https"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+    "/auth/login":{
+      "post":{
+        "tags": ["Auth"],
+        "summary": "Login",
+        "description": "Login",
+        "operationId": "login",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Login",
+            "required": [ "email", "password"],
+            "in": "body",
+            "properties": {
+				"email": {
+					"$ref": "#/definitions/email"
+				},
+					"password": {
+					"$ref": "#/definitions/password"
+				}
+			}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register",
+        "description": "Register",
+        "operationId": "register",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+        {
+            "name": "body",
+            "description": "Register",
+            "required": ["firstName", "lastName", "email", "password"],
+            "in": "body",
+            "properties": {
+              "firstName": {
+                "$ref": "#/definitions/firstName"
+              },
+              "lastName": {
+                "$ref": "#/definitions/lastName"
+              },
+              "email":{
+                 "$ref":"#/definitions/email" 
+              },
+              "password": {
+                "$ref": "#/definitions/password"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+		"/api/users": {
+			"put": {
+				"tags": ["Users"],
+				"description": "Update user",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "vm",
+						"required": ["_id", "firstName", "lastName", "email", "password"],
+						"in": "body",
+						"properties": {
+							"_id": {
+								"$ref": "#/definitions/_id"
+							},
+							"firstName": {
+								"$ref": "#/definitions/firstName"
+							},
+							"lastName": {
+								"$ref": "#/definitions/lastName"
+							},
+              				"email": {
+								"$ref": "#/definitions/email"
+							},
+							"password": {
+								"$ref": "#/definitions/password"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					},
+					"400": {
+						"description": "Business Exception",
+						"schema": {
+							"$ref": "#/definitions/business_exception"
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": ["Users"],
+				"description": "List users",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "_id",
+						"in": "query",
+						"type": "string",
+						"description": "Collection ID",
+						"example": "5c0728badc70ea3dec00d8e6",
+						"defaultValue": ""
+					},
+					{
+						"name": "firstName",
+						"in": "query",
+						"type": "string",
+						"example": "John"
+					},
+          {
+						"name": "lastName",
+						"in": "query",
+						"type": "string",
+						"example": "Doe"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"type": "string",
+						"description": "User logon",
+						"example": "jd@mail.com"
+					},
+					{
+						"name": "password",
+						"in": "query",
+						"type": "string",
+						"description": "User password",
+						"example": "1234"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					},
+					"400": {
+						"description": "Business Exception",
+						"schema": {
+							"$ref": "#/definitions/business_exception"
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Users"],
+				"description": "Delete user",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "_id",
+						"in": "query",
+						"required": true,
+						"type": "string",
+						"description": "ID",
+						"example": "5c0728badc70ea3dec00d8e6"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					},
+					"400": {
+						"description": "Business Exception",
+						"schema": {
+							"$ref": "#/definitions/business_exception"
+						}
+					}
+				}
+			}
+		},
+		"/auth/verify-token":{
+			"post":{
+			  "tags": ["Auth"],
+			  "summary": "Verify jwt token",
+			  "description": "Verify jwt token",
+			  "operationId": "Verify jwt token",
+			  "consumes": ["application/json"],
+			  "produces": ["application/json"],
+			  "parameters": [
+				{
+				  "name": "header",
+				  "description": "Verify jwt token",
+				  "required": [ "jwt"],
+				  "in": "body",
+				  "properties": {
+					  "jwt": {
+						  "$ref": "#/definitions/jwt-token"
+					  }
+				  }
+				}
+			  ],
+			  "responses": {
+				"200": {
+				  "description": "Successful operation"
+				},
+				"400": {
+				  "description": "Invalid jwt"
+				}
+			  }
+			}
+		  }
+	},
+	"definitions": {
+    "_id":{
+      "type": "string",
+      "description": "Collection ID",
+      "example": "5c0728badc70ea3dec00d8e6"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name",
+      "example": "John"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name",
+      "example": "Doe"
+    },
+		"email": {
+			"type": "string",
+			"description": "User logon",
+			"example": "jd@mail.com"
+		},
+		"password": {
+			"type": "string",
+			"description": "User password",
+			"example": "1234"
+		},
+		"error": {
+			"type": "object",
+			"description": "Error data",
+			"properties": {
+				"msg": {
+					"type": "string",
+					"description": "Error message",
+					"example": "User not found"
+				}
+			}
+		},
+		"business_exception": {
+			"type": "array",
+			"description": "Error array",
+			"items": {
+				"$ref": "#/definitions/error"
+			}
+		},
+		"jwt-token": {
+			"type": "string",
+			"description": "Error array"
+		}
+	}
+}

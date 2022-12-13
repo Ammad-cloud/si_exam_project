@@ -1,0 +1,313 @@
+*{transition:all 0.3s ease-in-out;}
+
+body{
+  margin:0;
+  padding:0;
+}
+
+.nav-container{
+  clear:both;
+  overflow:auto;
+  background:black;
+color:white;
+  margin:0;
+}
+
+.nav-container ul{
+    margin-top: 2%;
+}
+
+
+nav{float:right;}
+
+.logo img{float:left;}
+
+ul li{
+  display: inline-block;
+  padding:10px;
+  font-size:20px; font-family:raleway;
+}
+
+ul li:hover{
+  color:orange;
+  
+}
+
+.open-button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 4px 20px;
+  border: none;
+  border-radius:25px;
+  cursor: pointer;
+
+  width: 150px;
+}
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: absolute;
+  
+  right: 15px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+/*  max-width: 400px; */
+  padding: 10px 20px;
+  background-color: rgb(223, 223, 223);
+  border-radius:25px;
+
+
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+ width: 100%;
+  padding: 15px 0;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  border-radius:20px;
+
+
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: rgb(255, 255, 255);
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius:25px;
+
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+  border-radius:25px;
+
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+/* Search Bar */
+
+.hero--image-section {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+ 
+  
+}
+
+.hero img {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  max-height: 350px;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.hero .search {
+  position: relative;
+  vertical-align: middle;
+  z-index: 2;
+  margin: auto;
+  margin-top:230px;
+  max-width: 80%;
+
+}
+
+.hero .search input {
+  width: 100%;
+  height: 76px;
+  line-height: 76px;
+  border: 1px solid #111;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 27px;
+  padding: 5px 5px 5px 47px;
+  color: #fff;
+  position: relative;
+  border-radius: 0;
+}
+
+.hero .search button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #fff;
+  background: #88687b;
+  font-size: 27px;
+  height: 65px;
+  line-height: 65px;
+  width: 68px;
+  padding: 0;
+  border: 0;
+}
+
+
+.invite-btn{
+  background-color: #145FDD;
+  color: white;
+  padding: 4px 20px;
+  border: none;
+  border-radius:25px;
+  cursor: pointer;
+  width: 150px;
+}
+#login-form{
+  max-width: 35%;
+}
+
+#invite-form{
+  width: 35%;
+  margin-right: 6%;
+
+}
+.invi-send-btn{
+  background-color: #145FDD !important;
+
+}
+
+
+/* ------------------------------wishlist page ---------------------------------------- */
+
+.wishlist-container{
+  width: 80%;
+  margin: 3% auto;
+  height: 430px;
+}
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+.tablink:focus{
+  outline: none;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+
+.table-id{
+  cursor: pointer;
+}
+
+/* ------------------------registration form------------------------ */
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 7px;
+  margin: 2px 0 0 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.signup-container label{
+    margin-bottom: 2px !important;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  /*background-color: #ddd;*/
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 3px;
+}
+
+/* Set a style for all buttons */
+.clearfix button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.signup-container {
+    width: 50%;
+    background: lightgray;
+    margin: 2% auto;
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}

@@ -1,0 +1,39 @@
+POST http://localhost:3000/api/auth/register 
+Content-Type: application/json
+
+{
+    "firstName": "Cristiano",
+    "lastName": "Ronaldo",
+    "password": "123456789",
+    "email": "rc@mail.com"
+}
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "password": "123456789",
+    "email": "rc@mail.com"
+}
+
+###
+GET http://localhost:3000/api/users
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdiNTcwYzUxZGIyZDE5NjAwNzI4YWIiLCJpYXQiOjE2NjkwMjc4MTV9.M9WZes8oKP1RBTy-KzVCi-Pl2_scXqqkbJOZ1y37JkI
+
+###
+GET http://localhost:3000/api/users/63714373bf6ff117a219dce5
+COntent-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxNDM3M2JmNmZmMTE3YTIxOWRjZTUiLCJpYXQiOjE2NjgzNzc4NDJ9.yX9KijJvP9C6xfaSnbgQqsux_sNFGu0zvaSbJUXPw9Y
+
+###
+PUT http://localhost:3000/api/users/63714373bf6ff117a219dce5
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcxNDM3M2JmNmZmMTE3YTIxOWRjZTUiLCJpYXQiOjE2NjgzNzc4NDJ9.yX9KijJvP9C6xfaSnbgQqsux_sNFGu0zvaSbJUXPw9Y
+
+{
+    "firstName": "Cristiano",
+    "lastName": "Ronaldo Los Santos Aviero",
+    "password": "123456789"
+}

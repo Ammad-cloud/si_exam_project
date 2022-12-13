@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wishlist frontend</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="getAllProducts()">
+    
+    <script src="nav.js"></script>
+    </div>
+      <section class="hero hero--image-section">
+        <div class="container">
+          <div class="col-12">
+            <div class="search">
+              <form onsubmit="event.preventDefault()">
+                <input class="input" type="text" onkeyup="mySearchFunction()" id="search" placeholder="How may we help you?">
+                <button type="submit" onclick="searchGraphQL()"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="d-lg-block">
+          <img src="https://d1gkd65id2ekzc.cloudfront.net/test.jpg" alt=""/>
+        </div>        
+      </section>
+    
+    <body>
+        <div class="container mt-5 mb-5">
+          <table class="table table-dark table-striped" id="listingTable">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Main category</th>
+              </tr>
+            </thead>
+          <tbody id="data">
+          </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <button class="page-link" id="prevButton">Prev</button>
+              </li>
+              <li class="page-item">
+                <button class="page-link" id="nextButton">Next</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+</body>
+<script src="app.js"></script>
+</html>

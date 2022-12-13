@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign up</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+<style>
+</style>
+<body>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html"><img src="https://d3uug9v35qw8k4.cloudfront.net/logo.webp" alt="" width="130"/></a>
+      </div>
+    <nav>
+      <ul>
+        <li><button class="invite-btn" id="inviteFriend-btn" style="display: none" onclick="sendInvite()">Invite friends</button></li>
+        <li><a href="wishlist.html" style="display: none" id="nav_profile">Profile/Your wishlist</a></li>
+        <li><button class="open-button" onclick="openForm()" id="loginButton">Login</li></button>
+        <li><button class="open-button" onclick="logout()" id="logoutButton" style="display: none">Log out</li></button>
+      </ul>
+    </nav>
+</div>
+<div class="form-popup" id="login-form" >
+  <form onsubmit="event.preventDefault(); submitLogin()" class="form-container">
+    <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="email" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="password" placeholder="Enter Password" name="psw" required>
+    <p><a href="register.html">Sign up here</a></p>
+    <button type="submit" class="btn" >Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<form onsubmit="event.preventDefault(); submitRegister()">
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="first_name"><b>First name</b></label>
+    <input type="text" id="registerName" placeholder="Enter full name" name="first_name" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="registerEmail" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="registerPassword" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw"><b>Picture path</b></label>
+    <input id="registerImg" placeholder="Enter Password" name="psw" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+    
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+   <!--   <button type="button" class="cancelbtn">Cancel</button> -->
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+</body>
+<script src="app.js"></script>
+</html>

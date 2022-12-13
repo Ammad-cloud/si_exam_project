@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="style.product.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="index.html"><img src="https://d3uug9v35qw8k4.cloudfront.net/logo.webp" alt="" width="130"/></a>
+      </div>
+    <nav>
+      <ul>
+        <li><button class="invite-btn" id="inviteFriend-btn" style="display: none" onclick="sendInvite()">Invite friends</button></li>
+        <li><a href="wishlist.html" style="display: none" id="nav_profile">Profile/Your wishlist</a></li>
+        <li><button class="open-button" onclick="openForm()" id="loginButton">Login</li></button>
+        <li><button class="open-button" onclick="logout()" id="logoutButton" style="display: none">Log out</li></button>
+      </ul>
+    </nav>
+</div>
+<div class="form-popup" id="login-form" >
+  <form onsubmit="event.preventDefault(); submitLogin()" class="form-container">
+    <h1>Login</h1>
+    <label for="email"><b>Email</b></label>
+    <input type="text" id="email" placeholder="Enter Email" name="email" required>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="password" placeholder="Enter Password" name="psw" required>
+    <p><a href="register.html">Sign up here</a></p>
+    <button type="submit" class="btn" >Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+  <main>
+    <div class="card">
+      <div class="card__title">
+        <div class="icon">
+          <a href="#"><i class="fa fa-arrow-left"></i></a>
+        </div>
+        <h3>New products</h3>
+      </div>
+      <div class="card__body">
+        <div class="half">
+          <div class="featured_text">
+            <h1 id="productName"></h1>
+            <p class="productMainCat"></p>
+            <p class="productPrice"></p>
+          </div>
+          <div class="image"></div>
+        </div>
+        <div class="half">
+          <div class="description">
+            <p id="productDescription">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem nam pariatur voluptate perferendis, asperiores aspernatur! Porro similique consequatur, nobis soluta minima, quasi laboriosam hic cupiditate perferendis esse numquam magni.
+            </p>
+          </div>
+          <span class="stock"><i class="fa fa-pen"></i> In stock</span>
+          <div class="reviews">
+            <ul class="stars">
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star-o"></i></li>
+            </ul>
+            <span>(64 reviews)</span>
+          </div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="recommend">
+          <p>Recommended by</p>
+          <h3>John Doe</h3>
+        </div>
+        <div class="action">
+          <button type="button" onclick="addToWishlist()">Add to wishlist</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+
+    async function addToWishlist() {
+      //const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      const userId = localStorage.getItem('userId').slice(1,-1);
+      const productId = localStorage.getItem('productId').slice(1,-1);
+      // const product = {
+      //   productId: localStorage.getItem('productId').slice(1,-1),
+      //   productName: localStorage.getItem('productName').slice(1,-1),
+      //   productDescription: localStorage.getItem('productDescription').slice(1,-1),
+      //   productMainCat: localStorage.getItem('productMainCat').slice(1,-1),
+      //   productPrice: localStorage.getItem('productPrice').slice(1,-1),
+      //   productImg: localStorage.getItem('productImg').slice(1,-1)
+      // }
+      // wishlist.push(product);
+      // localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      const response = await fetch(`http://localhost:3001/api/wishlist/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          productId
+        })
+      });
+      const data = await response.json();
+      console.log(data);
+
+    }
+
+    const productName = document.getElementById('productName');
+    const productDescription = document.getElementById('productDescription');
+    const productMainCat = document.querySelector('.productMainCat');
+    const productPrice = document.querySelector('.productPrice');
+    const productImg = document.querySelector('.image');
+
+    productName.innerHTML = localStorage.getItem('productName').slice(1,-1);
+    productDescription.innerHTML = localStorage.getItem('productDescription').slice(1,-1);
+    productMainCat.innerHTML = localStorage.getItem('productMainCat').slice(1,-1);
+    productPrice.innerHTML = localStorage.getItem('productPrice').slice(1,-1);
+    const img = localStorage.getItem('productImg').slice(1,-1);
+    productImg.innerHTML += ' <img src="' + img + '">';
+
+  </script>
+</body>
+
+</html>
